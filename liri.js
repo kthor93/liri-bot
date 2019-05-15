@@ -6,24 +6,25 @@ const moment = require("moment");
 const Spotify = require("node-spotify-api");
 const fs = require("fs");
 
-const userCommand = process.argv[2];
-const userArgument = process.argv[3];
+startLiri(process.argv[2], process.argv.slice(3).join(" "));
 
-switch (userCommand) {
-    case "concert-this":
-        concertThis(userArgument);
-        break;
-    case "spotify-this-song":
-        spotifyThisSong(userArgument);
-        break;
-    case "movie-this":
-        movieThis(userArgument);
-        break;
-    case "do-what-it-says":
-        doWhatItSays();
-        break;
-    default:
-        console.log("Please enter a valid command.");
+function startLiri(userCommand, userArgument) {
+    switch (userCommand) {
+        case "concert-this":
+            concertThis(userArgument || "The Backstreet Boys");
+            break;
+        case "spotify-this-song":
+            spotifyThisSong(userArgument || "The Sign");
+            break;
+        case "movie-this":
+            movieThis(userArgument || "Mr. Nobody");
+            break;
+        case "do-what-it-says":
+            doWhatItSays();
+            break;
+        default:
+            console.log("Please enter a valid command.");
+    }
 }
 
 function concertThis(artist) {
@@ -33,14 +34,24 @@ function concertThis(artist) {
         const events = response.data;
 
         events.forEach(function (event) {
-            return console.log(`
-                Venue Name: ${event.venue.name}
-                Venue Location: ${event.venue.city}, ${event.venue.region}, ${event.venue.country}
-                Venue Date: ${moment(event.venue.date)}
-            `);
+            if (event.venue.region) {
+                return console.log(`
+    Venue Name: ${event.venue.name}
+    Venue Location: ${event.venue.city}, ${event.venue.region}, ${event.venue.country}
+    Venue Date: ${moment(event.venue.date)}
+
+    -----------------------------------------------------------`);
+            } else {
+                return console.log(`
+    Venue Name: ${event.venue.name}
+    Venue Location: ${event.venue.city}, ${event.venue.country}
+    Venue Date: ${moment(event.venue.date)}
+
+    -----------------------------------------------------------`);
+            }
         })
     }).catch(function (error) {
-        console.log(error);
+        return console.log(error);
     })
 }
 
@@ -51,13 +62,14 @@ function spotifyThisSong(song) {
         const song = response.tracks.items[0];
 
         return console.log(`
-            Artist: ${song.artists[0].name}
-            Song: ${song.name}
-            Album: ${song.album.name}
-            Preview Song: ${song.preview_url}
-        `);
+    Artist: ${song.artists[0].name}
+    Song: ${song.name}
+    Album: ${song.album.name}
+    -----------------------------------------------------------
+    Preview Song: ${song.preview_url}
+    `);
     }).catch(function (err) {
-        console.log(err.message);
+        return console.log(err.message);
     })
 }
 
@@ -65,8 +77,22 @@ function movieThis(movie) {
     const queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
     axios.get(queryURL).then(function (response) {
-        return console.log(response);
-    });
+        const movie = response.data;
+
+        return console.log(`
+    TItle: ${movie.Title}
+    Year Released: ${movie.Year}
+    IMDB Rating: ${movie.imdbRating}
+    Rotten Tomatoes Rating: ${movie.Metascore}
+    Country Produced: ${movie.Country}
+    Language: ${movie.Language}
+    Actors: ${movie.Actors}
+    -----------------------------------------------------------
+    Plot: ${movie.Plot}
+    `);
+    }).catch(function (error) {
+        return console.log(error);
+    })
 }
 
 function doWhatItSays() {
@@ -74,7 +100,9 @@ function doWhatItSays() {
         if (err) {
             return console.log(err.message);
         } else {
-            return console.log(data);
+            const dataArray = data.split(",");
+
+            startLiri(dataArray[0], dataArray[1]);
         }
     })
 }
