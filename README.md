@@ -23,15 +23,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
  `npm install`
  
   ## How to Run
- `In your Command line interface, type in:
+ In your Command line interface, type in:
  
- 1. `node liri-node-app.js <command>`
+ `node liri-node-app.js <command>`
  
  Followed by one of the following commands:
  
  `concert-this <artist>`
+ ******
  `spotify-this-song <artist>`
+ ******
  `movie-this <movie>`
+ ******
  `do-what-it-says`
  
  For Example:
