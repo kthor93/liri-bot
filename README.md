@@ -32,7 +32,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
  `concert-this <artist>`\
  `spotify-this-song <artist>`\
  `movie-this <movie>`\
- `do-what-it-says`\
+ `do-what-it-says`
  
  For Example:
  `node liri.node.app.js spotify-this-song safety dance`
