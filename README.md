@@ -29,10 +29,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
  
  Followed by one of the following commands:
  
- ```concert-this <artist>```
- ```spotify-this-song <artist>```
- ```movie-this <movie>```
- ```do-what-it-says```
+ ```
+ concert-this <artist>
+ ```
+ ```
+ spotify-this-song <artist>
+ ```
+ ```
+ movie-this <movie>
+ ```
+ ```
+ do-what-it-says
+ ```
  
  For Example:
  `node liri.node.app.js spotify-this-song safety dance`
