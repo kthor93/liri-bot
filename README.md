@@ -1,6 +1,7 @@
 # liri-node-app
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 &nbsp;
 
  ## Development
@@ -13,6 +14,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
  * node-spotify-api
  * dotenv
  * moment
+ 
  &nbsp;
 
 ## Installing/Getting Started
@@ -23,6 +25,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 2. Inside the root directory of the cloned filed, run the following command in your terminal/bash:
 
  `npm install`
+ 
  &nbsp;
  
   ## How to Run
@@ -39,6 +42,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
  
  For Example:
  `node liri.node.app.js spotify-this-song safety dance`
+ 
  &nbsp;
 
 ## Demo
