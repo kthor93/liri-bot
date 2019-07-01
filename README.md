@@ -45,16 +45,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
  
  &nbsp;
 
-## Demo
+## Screenshots
 
 #### concert-this
 ![concert-this](https://github.com/kthor93/liri-node-app/blob/master/screenshots/01%20concert-this.png)
 
+
 #### spotify-this-song
 ![spotify-this-song](https://github.com/kthor93/liri-node-app/blob/master/screenshots/02%20spotify-this-song.png)
 
+
 #### movie-this
 ![movie-this](https://github.com/kthor93/liri-node-app/blob/master/screenshots/03%20movie-this.png)
+
 
 #### do-what-it-says
 ![do-what-it-says](https://github.com/kthor93/liri-node-app/blob/master/screenshots/04%20do-what-it-says.png)
